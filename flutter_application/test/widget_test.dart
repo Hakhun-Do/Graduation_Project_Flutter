@@ -1,30 +1,19 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_application/main.dart';
+// screens.dart 파일 임포트
+import 'package:/flutter_application/screens.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  // 위젯 테스트를 정의하는 main 함수
+  testWidgets('RegisterGroup displays register text',
+      (WidgetTester tester) async {
+    // 앱을 빌드하고 프레임을 트리거
+    await tester.pumpWidget(MaterialApp(home: MainGroup()));
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // "register" 텍스트가 표시되는지 확인
+    expect(find.text('register'), findsOneWidget);
+    // "not displayed" 텍스트가 표시되지 않는지 확인
+    expect(find.text('not displayed'), findsNothing);
   });
 }
