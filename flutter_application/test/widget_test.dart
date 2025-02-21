@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 // screens.dart 파일 임포트
+// ignore: depend_on_referenced_packages
 import 'package:/flutter_application/screens.dart';
 
 void main() {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'mainpage.dart';
 
 void main() {
   runApp(const FigmaToCodeApp());
@@ -23,7 +24,28 @@ class FigmaToCodeApp extends StatelessWidget {
   }
 }
 
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Register'),
+      ),
+      body: Center(
+        child: Text(
+          'Welcome to the Registration Page!',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
+    );
+  }
+}
+
 class MainGroup extends StatelessWidget {
+  const MainGroup({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -63,9 +85,20 @@ class MainGroup extends StatelessWidget {
                         child: SizedBox(
                           width: 97.71,
                           height: 30.13,
-                          child: SizedBox(
-                            width: 97.71,
-                            height: 30.13,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // 버튼 클릭 시 mainpage.dart의 MainPage로 이동
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BigMapGroup()), // 변경
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.transparent, // 배경색 투명
+                              shadowColor: Colors.transparent, // 그림자 제거
+                              padding: EdgeInsets.zero, // 패딩 제거
+                            ),
                             child: Text(
                               'register',
                               style: TextStyle(
