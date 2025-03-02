@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 // screens.dart 파일 임포트
 // ignore: depend_on_referenced_packages
-import 'package:/flutter_application/screens.dart';
+import 'package:flutter_application/loginpage.dart';
 
 void main() {
   // 위젯 테스트를 정의하는 main 함수

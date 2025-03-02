@@ -50,7 +50,7 @@ class MainGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        SizedBox(
           width: 340,
           height: 434.11,
           child: Stack(
@@ -58,7 +58,7 @@ class MainGroup extends StatelessWidget {
               Positioned(
                 left: 0,
                 top: 358.23,
-                child: Container(
+                child: SizedBox(
                   width: 340,
                   height: 75.89,
                   child: Stack(
@@ -119,7 +119,7 @@ class MainGroup extends StatelessWidget {
               Positioned(
                 left: 0,
                 top: 0,
-                child: Container(
+                child: SizedBox(
                   width: 340,
                   height: 339.26,
                   child: Stack(
@@ -151,7 +151,7 @@ class MainGroup extends StatelessWidget {
                       Positioned(
                         left: 56.83,
                         top: 108.25,
-                        child: Container(
+                        child: SizedBox(
                           width: 226.33,
                           height: 180.79,
                           child: Stack(
@@ -194,7 +194,7 @@ class MainGroup extends StatelessWidget {
                               Positioned(
                                 left: 0,
                                 top: 0,
-                                child: Container(
+                                child: SizedBox(
                                   width: 226.33,
                                   height: 44.64,
                                   child: Stack(
@@ -221,6 +221,7 @@ class MainGroup extends StatelessWidget {
                                             child: Text(
                                               'input ID',
                                               style: TextStyle(
+                                                // ignore: deprecated_member_use
                                                 color: Colors.black.withOpacity(
                                                     0.15000000596046448),
                                                 fontSize: 14,
@@ -239,7 +240,7 @@ class MainGroup extends StatelessWidget {
                               Positioned(
                                 left: 0,
                                 top: 72.54,
-                                child: Container(
+                                child: SizedBox(
                                   width: 226.33,
                                   height: 44.64,
                                   child: Stack(
@@ -266,6 +267,7 @@ class MainGroup extends StatelessWidget {
                                             child: Text(
                                               'input Password',
                                               style: TextStyle(
+                                                // ignore: deprecated_member_use
                                                 color: Colors.black.withOpacity(
                                                     0.15000000596046448),
                                                 fontSize: 14,
@@ -288,7 +290,7 @@ class MainGroup extends StatelessWidget {
                       Positioned(
                         left: 165.51,
                         top: 244.40,
-                        child: Container(
+                        child: SizedBox(
                           width: 117.65,
                           height: 44.64,
                           child: Stack(

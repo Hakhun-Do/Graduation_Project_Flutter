@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens.dart';
+import 'loginpage.dart';
 
 void main() {
   // 앱을 실행하는 main 함수
