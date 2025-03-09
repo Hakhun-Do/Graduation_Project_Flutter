@@ -24,11 +24,13 @@ class FigmaToCodeApp extends StatelessWidget {
 }
 
 class Group8 extends StatelessWidget {
+  const Group8({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        SizedBox(
           width: 236.85,
           height: 350,
           child: Stack(
@@ -59,7 +61,7 @@ class Group8 extends StatelessWidget {
               Positioned(
                 left: 39,
                 top: 122,
-                child: Container(
+                child: SizedBox(
                   width: 160,
                   height: 30,
                   child: Stack(
@@ -77,6 +79,7 @@ class Group8 extends StatelessWidget {
                               'input text',
                               style: TextStyle(
                                 color: Colors.black
+                                    // ignore: deprecated_member_use
                                     .withOpacity(0.15000000596046448),
                                 fontSize: 14,
                                 fontFamily: 'Inter',
@@ -121,6 +124,7 @@ class Group8 extends StatelessWidget {
                               'input text',
                               style: TextStyle(
                                 color: Colors.black
+                                    // ignore: deprecated_member_use
                                     .withOpacity(0.15000000596046448),
                                 fontSize: 14,
                                 fontFamily: 'Inter',
@@ -147,7 +151,7 @@ class Group8 extends StatelessWidget {
               Positioned(
                 left: 39,
                 top: 201,
-                child: Container(
+                child: SizedBox(
                   width: 160,
                   height: 30,
                   child: Stack(
@@ -165,6 +169,7 @@ class Group8 extends StatelessWidget {
                               'input text',
                               style: TextStyle(
                                 color: Colors.black
+                                    // ignore: deprecated_member_use
                                     .withOpacity(0.15000000596046448),
                                 fontSize: 14,
                                 fontFamily: 'Inter',
@@ -209,6 +214,7 @@ class Group8 extends StatelessWidget {
                               'input text',
                               style: TextStyle(
                                 color: Colors.black
+                                    // ignore: deprecated_member_use
                                     .withOpacity(0.15000000596046448),
                                 fontSize: 14,
                                 fontFamily: 'Inter',
