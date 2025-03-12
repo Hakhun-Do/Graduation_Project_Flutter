@@ -61,7 +61,7 @@ class RegisterPage extends StatelessWidget {
                   TextField(
                     controller: idController,
                     decoration: const InputDecoration(
-                      labelText: 'ID',
+                      labelText: '아이디',
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -72,7 +72,7 @@ class RegisterPage extends StatelessWidget {
                     controller: passwordController,
                     obscureText: true, // 비밀번호 숨기기
                     decoration: const InputDecoration(
-                      labelText: 'Password',
+                      labelText: '비밀번호',
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -82,7 +82,7 @@ class RegisterPage extends StatelessWidget {
                   TextField(
                     controller: nameController,
                     decoration: const InputDecoration(
-                      labelText: 'Name',
+                      labelText: '이름',
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -92,7 +92,7 @@ class RegisterPage extends StatelessWidget {
                   TextField(
                     controller: phonenumberController,
                     decoration: const InputDecoration(
-                      labelText: 'Phone number, ex) 010xxxxxxxx',
+                      labelText: '전화번호, ex) 010xxxxxxxx',
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -113,7 +113,7 @@ class RegisterPage extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(vertical: 15),
                           ),
                           child: const Text(
-                            'Login',
+                            '로그인',
                             style: TextStyle(fontSize: 18),
                           ),
                         ),
@@ -145,11 +145,11 @@ class RegisterPage extends StatelessWidget {
                               return; // 회원가입 진행 안 함
                             }
 
-                            bool success = await apiService.registerUser(
-                                id, password, name, phonenumber);
+                            Map<String, dynamic> result = await apiService
+                                .registerUser(id, password, name, phonenumber);
 
                             if (context.mounted) {
-                              if (success) {
+                              if (result["success"]) {
                                 // 회원가입 성공 메시지 출력
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(content: Text('회원가입 성공!')));
@@ -158,8 +158,9 @@ class RegisterPage extends StatelessWidget {
                               } else {
                                 // 회원가입 실패 메시지 출력력
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text('회원가입 실패! 다시 시도해주세요.')),
+                                  SnackBar(
+                                      content: Text(result["error"] ??
+                                          '회원가입 실패! 다시 시도해주세요.')),
                                 );
                               }
                             }
@@ -170,7 +171,7 @@ class RegisterPage extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(vertical: 15),
                           ),
                           child: const Text(
-                            'Register',
+                            '회원가입',
                             style: TextStyle(fontSize: 18),
                           ),
                         ),
