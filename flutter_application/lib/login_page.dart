@@ -101,14 +101,15 @@ class LoginPage extends StatelessWidget {
                                 await apiService.loginUser(id, password);
 
                             if (context.mounted) {
-                              if (result["success"]) {
+                              if (result["success"] &&
+                                  result.containsKey("token")) {
                                 // 로그인 성공 메시지 출력
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(content: Text('로그인 성공!')),
                                 );
                                 // 홈 화면으로 이동
                                 Navigator.pushNamed(
-                                    context, '/home'); // main_page로 이동되게 해야함
+                                    context, '/r'); // main_page로 이동되게 해야함
                               } else {
                                 // 로그인 실패 메시지 출력
                                 ScaffoldMessenger.of(context).showSnackBar(
