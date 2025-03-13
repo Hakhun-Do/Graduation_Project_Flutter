@@ -79,8 +79,8 @@ class ApiService {
       } else {
         return {"success": false, "error": "토큰 형식이 올바르지 않습니다."};
       }
-    } else if (response.statusCode == 409) {
-      // 409 CONFLICT → 서버에서 예외 메시지를 보냄
+    } else if (response.statusCode == 401) {
+      // 401 CONFLICT → 서버에서 예외 메시지를 보냄
 
       return {
         "success": false,
