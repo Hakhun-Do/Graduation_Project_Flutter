@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/api_service.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
@@ -10,6 +11,8 @@ class RegisterPage extends StatelessWidget {
     final TextEditingController passwordController = TextEditingController();
     final TextEditingController nameController = TextEditingController();
     final TextEditingController phonenumberController = TextEditingController();
+
+    final ApiService apiService = ApiService(); // API 서비스 인스턴스 생성
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 18, 32, 47),
@@ -58,7 +61,7 @@ class RegisterPage extends StatelessWidget {
                   TextField(
                     controller: idController,
                     decoration: const InputDecoration(
-                      labelText: 'ID',
+                      labelText: '아이디',
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -69,7 +72,7 @@ class RegisterPage extends StatelessWidget {
                     controller: passwordController,
                     obscureText: true, // 비밀번호 숨기기
                     decoration: const InputDecoration(
-                      labelText: 'Password',
+                      labelText: '비밀번호',
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -79,7 +82,7 @@ class RegisterPage extends StatelessWidget {
                   TextField(
                     controller: nameController,
                     decoration: const InputDecoration(
-                      labelText: 'Name',
+                      labelText: '이름',
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -89,7 +92,7 @@ class RegisterPage extends StatelessWidget {
                   TextField(
                     controller: phonenumberController,
                     decoration: const InputDecoration(
-                      labelText: 'Phone number, ex) 010xxxxxxxx',
+                      labelText: '전화번호, ex) 010xxxxxxxx',
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -110,7 +113,7 @@ class RegisterPage extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(vertical: 15),
                           ),
                           child: const Text(
-                            'Login',
+                            '로그인',
                             style: TextStyle(fontSize: 18),
                           ),
                         ),
@@ -120,7 +123,7 @@ class RegisterPage extends StatelessWidget {
                       // 회원가입 버튼
                       Expanded(
                         child: ElevatedButton(
-                          onPressed: () {
+                          onPressed: () async {
                             String id = idController.text.trim();
                             String password = passwordController.text.trim();
                             String name = nameController.text.trim();
@@ -132,18 +135,35 @@ class RegisterPage extends StatelessWidget {
                                 password.isEmpty ||
                                 name.isEmpty ||
                                 phonenumber.isEmpty) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text('모든 필드를 입력하세요!')));
+                              if (context.mounted) {
+                                // context가 유효할 때만 실행
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content: Text('모든 필드를 입력하세요!')));
+                              }
+
                               return; // 회원가입 진행 안 함
                             }
 
-                            // 회원가입 성공 메시지 출력
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text('회원가입 성공!')));
+                            Map<String, dynamic> result = await apiService
+                                .registerUser(id, password, name, phonenumber);
 
-                            // 회원가입 후 로그인 페이지로 이동
-                            Navigator.pushNamed(context, '/');
+                            if (context.mounted) {
+                              if (result["success"]) {
+                                // 회원가입 성공 메시지 출력
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(content: Text('회원가입 성공!')));
+                                // 회원가입 후 로그인 페이지로 이동
+                                Navigator.pushNamed(context, '/');
+                              } else {
+                                // 회원가입 실패 메시지 출력력
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content: Text(result["error"] ??
+                                          '회원가입 실패! 다시 시도해주세요.')),
+                                );
+                              }
+                            }
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.black,
@@ -151,7 +171,7 @@ class RegisterPage extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(vertical: 15),
                           ),
                           child: const Text(
-                            'Register',
+                            '회원가입',
                             style: TextStyle(fontSize: 18),
                           ),
                         ),
