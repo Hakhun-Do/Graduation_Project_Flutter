@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'Big_Map_Group.dart';
-import 'Big_Chat_Group.dart';
-import 'Big_My_Group.dart';
+import 'mainpage_map_group.dart';
+import 'mainpage_chat_group.dart';
+import 'mainpage_profile_group.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MainPageState createState() => _MainPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
 
   final List<Widget> _classeWidgets = [
@@ -20,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
       frequentGroup: '자주가는 내용 1\n자주가는 내용 2',
       popularGroup: '인기 내용 1\n인기 내용 2',
     ),
-    BigMyGroup(
+    BigProfileGroup(
       name: '홍길동',
       phoneNumber: '010-1234-5678',
     ),

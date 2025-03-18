@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-class BigMyGroup extends StatelessWidget {
+class BigProfileGroup extends StatelessWidget {
   final String name;
   final String phoneNumber;
 
-  const BigMyGroup({super.key, required this.name, required this.phoneNumber});
+  const BigProfileGroup(
+      {super.key, required this.name, required this.phoneNumber});
 
   @override
   Widget build(BuildContext context) {
