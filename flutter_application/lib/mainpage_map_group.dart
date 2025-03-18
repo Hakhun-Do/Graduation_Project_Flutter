@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BigMapGroup extends StatelessWidget {
-  const BigMapGroup({super.key});
+class MapGroup extends StatelessWidget {
+  const MapGroup({super.key});
 
   @override
   Widget build(BuildContext context) {

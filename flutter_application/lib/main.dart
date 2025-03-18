@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/login_page.dart';
+import 'package:flutter_application/mainpage.dart';
 import 'package:flutter_application/register_page.dart';
 
 void main() => runApp(SobangWabangApp());
@@ -14,6 +15,7 @@ class SobangWabangApp extends StatelessWidget {
         routes: {
           '/': (context) => LoginPage(),
           '/r': (context) => RegisterPage(),
+          '/m': (context) => MainPage(),
         });
   }
 }

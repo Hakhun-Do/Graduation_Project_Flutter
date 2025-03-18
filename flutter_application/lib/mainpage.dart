@@ -7,20 +7,20 @@ class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
   @override
-  _MainPageState createState() => _MainPageState();
+  MainPageState createState() => MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class MainPageState extends State<MainPage> {
   int _currentIndex = 0;
 
   final List<Widget> _classeWidgets = [
-    BigMapGroup(),
-    BigChatGroup(
+    MapGroup(),
+    ChatGroup(
       importantGroup: '중요한 내용 1\n중요한 내용 2',
       frequentGroup: '자주가는 내용 1\n자주가는 내용 2',
       popularGroup: '인기 내용 1\n인기 내용 2',
     ),
-    BigProfileGroup(
+    ProfileGroup(
       name: '홍길동',
       phoneNumber: '010-1234-5678',
     ),

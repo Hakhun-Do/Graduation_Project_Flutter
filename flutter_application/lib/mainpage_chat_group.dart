@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class BigChatGroup extends StatelessWidget {
+class ChatGroup extends StatelessWidget {
   final String importantGroup;
   final String frequentGroup;
   final String popularGroup;
 
-  const BigChatGroup({
+  const ChatGroup({
     super.key,
     required this.importantGroup,
     required this.frequentGroup,

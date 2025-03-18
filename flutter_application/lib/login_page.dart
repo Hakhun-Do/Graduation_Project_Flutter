@@ -109,7 +109,7 @@ class LoginPage extends StatelessWidget {
                                 );
                                 // 홈 화면으로 이동
                                 Navigator.pushNamed(
-                                    context, '/r'); // main_page로 이동되게 해야함
+                                    context, '/m'); // main_page로 이동되게 해야함
                               } else {
                                 // 로그인 실패 메시지 출력
                                 ScaffoldMessenger.of(context).showSnackBar(
