@@ -36,9 +36,9 @@ class MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('클래스 변경 예제'),
+        title: Text('소방와방'),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: _classeWidgets[_currentIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
