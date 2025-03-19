@@ -37,10 +37,20 @@ class ProfileGroup extends StatelessWidget {
           SizedBox(height: 5),
           Text('아이디'),
           SizedBox(height: 10),
-          Text('비밀번호 변경'),
-          SizedBox(height: 10),
-          Text('전화번호 변경'),
-          SizedBox(height: 20),
+          Column(
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('비밀번호 변경'),
+              ),
+              SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('전화번호 변경'),
+              ),
+              SizedBox(height: 20),
+            ],
+          ),
           Text('설정', style: TextStyle(fontWeight: FontWeight.bold)),
           SizedBox(height: 5),
           Text('로그아웃'),

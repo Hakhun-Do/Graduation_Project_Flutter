@@ -19,7 +19,10 @@ class MapGroup extends StatelessWidget {
         decoration: InputDecoration(
           border: OutlineInputBorder(),
           hintText: '검색',
-          suffixIcon: Icon(Icons.search),
+          suffixIcon: IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {},
+          ),
           filled: true,
           fillColor: Colors.white,
         ),
