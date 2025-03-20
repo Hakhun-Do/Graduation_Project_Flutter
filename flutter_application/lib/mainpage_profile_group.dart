@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 class ProfileGroup extends StatelessWidget {
   final String name;
   final String phoneNumber;
+  final String id;
 
   const ProfileGroup(
-      {super.key, required this.name, required this.phoneNumber});
+      {super.key,
+      required this.name,
+      required this.phoneNumber,
+      required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -35,26 +39,33 @@ class ProfileGroup extends StatelessWidget {
           SizedBox(height: 20),
           Text('계정', style: TextStyle(fontWeight: FontWeight.bold)),
           SizedBox(height: 5),
-          Text('아이디'),
+          Text('아이디: $id'),
           SizedBox(height: 10),
           Column(
             children: [
-              ElevatedButton(
+              TextButton(
                 onPressed: () {},
                 child: Text('비밀번호 변경'),
               ),
               SizedBox(height: 10),
-              ElevatedButton(
+              TextButton(
                 onPressed: () {},
-                child: Text('전화번호 변경'),
+                child: Text('관할 구역 지정'),
               ),
               SizedBox(height: 20),
             ],
           ),
           Text('설정', style: TextStyle(fontWeight: FontWeight.bold)),
           SizedBox(height: 5),
-          Text('로그아웃'),
-          SizedBox(height: 10),
+          Column(
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: Text('로그아웃'),
+              ),
+              SizedBox(height: 10),
+            ],
+          ),
         ],
       ),
     );

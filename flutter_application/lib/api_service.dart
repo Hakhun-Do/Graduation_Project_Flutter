@@ -104,4 +104,42 @@ class ApiService {
   Future<void> logout() async {
     await storage.delete(key: "auth_token");
   }
+
+  // 회원 정보 조회
+  Future<Map<String, dynamic>?> fetchUserProfile() async {
+    String? token = await storage.read(key: "auth_token"); // 저장된 JWT 토큰 가져오기
+    if (token == null) {
+      print("❌ JWT 토큰이 없습니다.");
+      return null;
+    }
+
+    print("🔑 저장된 JWT 토큰: $token"); // 토큰 값 출력 (디버깅용)
+
+    final url = Uri.parse("$baseUrl/getinfo"); // 프로필 조회 API 엔드포인트
+
+    // ✅ 보낼 요청 정보 출력
+    print("🔍 요청 URL: $url");
+    print("🔍 Authorization 헤더: Bearer $token");
+
+    final response = await http.post(
+      url,
+      headers: {
+        "Authorization": "Bearer $token", // JWT 토큰 인증
+        "Content-Type": "application/json",
+        "Accept": "*/*",
+        "User-Agent": "PostmanRuntime/7.29.2", // ✅ Postman과 동일한 User-Agent 추가
+      },
+    );
+    print("🔍 서버 응답 상태 코드: ${response.statusCode}");
+    print("🔍 서버 응답 본문: ${response.body}");
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      print("✅ API 응답 데이터: $data"); // API 응답 확인
+      return data;
+    } else {
+      print("❌ API 호출 실패: 상태 코드 ${response.statusCode}, 응답 ${response.body}");
+      return null;
+    }
+  }
 }
